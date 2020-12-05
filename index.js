@@ -159,6 +159,23 @@ setInterval(function () {
 
 }, 60000);
 
+
+
+
+
+// Boucle permetant de notifier l'accéssibilité des serveurs.
+setInterval(function () {
+    client.channels.cache.get("783634800652058634").send("!nmc actualisation");
+}, 1200);
+
+
+
+
+
+
+
+
+
     
 // REACTIONS 
 
