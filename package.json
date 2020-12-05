@@ -1,0 +1,15 @@
+{
+  "name": "nmc-bot",
+  "version": "20.12",
+  "description": "Bot pour le serveur NMC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nem-Developing",
+  "license": "GPL",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "is-reachable": "^5.0.0",
+  }
+}

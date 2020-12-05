@@ -1,0 +1,19 @@
+{
+    "reactionRole": {
+        "ID_MESSAGE": {
+            "emojis": [{
+                "id": "ID_EMOJI",
+                "roles": "ID_ROLE",
+                "nom" : "NOM_DU_ROLE"
+            }]
+        },
+        "ID_MESSAGE": {
+            "removable": true,
+            "emojis": [{
+                "name": "🇦",
+                "roles": "ID_ROLE",
+                "nom" : "NOM_DU_ROLE"
+            }
+            }]
+        }
+}

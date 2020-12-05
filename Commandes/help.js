@@ -1,0 +1,38 @@
+const Discord = require('discord.js'); // Import de la bibliothéque "discord.js".
+
+module.exports.run = (client, message, args) => {
+    const membre = message.mentions.members.first() || message.member;
+
+    message.channel.send({
+        embed: {
+            color: 3447003,
+            author: {
+                name: client.user.username,
+                icon_url: client.user.avatarURL
+            },
+            title: "Aide commandes du bot NMC",
+            url: "",
+            description: "Voici toutes les commandes que vous pouvez utiliser :",
+            fields: [{
+                name: "`!nmc help`",
+                value: "Vous affiche l'aide du bot."
+            },
+            {
+                name: "`!nmc report <@membre>`",
+                value: "Vous permet de faire un rapport au staf suite au mauvais comportement d'autres usagers du serveur. Vous receverez un message privé. Vous n'aurez plus qu'a répondre à ce message avec la raison du report. (Prenez gardes à ne pas report sans raison valable. Si le staff se rend compte que vous raportez à tord, vous serez sanctionées !)"
+            }
+
+            ],
+            timestamp: new Date(),
+            footer: {
+                icon_url: client.user.avatarURL,
+                text: "© Chrétiens-FR"
+            }
+        }
+
+        })
+    }
+
+module.exports.help = {
+    name: 'help'
+};
