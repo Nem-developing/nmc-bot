@@ -10,12 +10,7 @@ __**NMC-BOT MADE BY Nem-developing**__
 
 ## Node Package Manager's installation : 
 - npm i discord.js
-- npm i superagent
-- npm i fs
-- npm i moment
-- npm i request
-- npm i unirest
-- npm i 
+- npm i is-reachable
 
 **N'oubliez pas la modification des fichier json dans le dossier /jsons.**
 
