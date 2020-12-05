@@ -10,6 +10,6 @@
   "license": "GPL",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "is-reachable": "^5.0.0",
+    "is-reachable": "^5.0.0"
   }
 }
