@@ -11,6 +11,7 @@ __**NMC-BOT MADE BY Nem-developing**__
 ## Node Package Manager's installation : 
 - npm i discord.js
 - npm i is-reachable
+- npm i fs
 
 **N'oubliez pas la modification des fichier json dans le dossier /jsons.**
 
