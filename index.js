@@ -1,5 +1,7 @@
 const Discord = require('discord.js'); // Import de la bibliothèque "discord.js".
 const client = new Discord.Client({partials: ['MESSAGE', 'REACTION']}); 
+const moment = require('moment');
+const isReachable = require('is-reachable');
 const token = require("./jsons/token.json");  // Ici on cache le token dans le fichier token.json du répertoire courrant. (Cela me permet d'envoyer mon fichier Index.js vers GitHub sans me soucier.)
 const badlist = require("./jsons/badlist.json");  // Ici on importe le fichier badlist.json pour une question d'hygiène de code.
 client.commands = new Discord.Collection();  // Création de la variable commande.
@@ -163,9 +165,97 @@ setInterval(function () {
 
 
 
+
+
+
+
+
+
 // Boucle permetant de notifier l'accéssibilité des serveurs.
 setInterval(function () {
-    client.channels.cache.get("783634800652058634").send("!nmc actualisation");
+    client.channels.cache.get("783634800652058634").send("Actualisation des serveur ...");
+    
+    
+    
+    // Définition des variables
+    let proxy;
+    let lobby;
+    let authlobby;
+    let faction;
+    let minage;
+    let opprison;
+    let libre;
+    let survie;
+    let creatif;
+    let skyblock;
+    
+    // Définition des constantes liées aux channels discord.
+    const voiceproxy = client.channels.cache.get("784903274389438535");
+    const voiceauthlobby = client.channels.cache.get('784904454125649920');
+    const voicelobby = client.channels.cache.get('784903327216566292');
+    const voicepvpfac = client.channels.cache.get('783614404112810014');
+    const voiceminage = client.channels.cache.get('784903399077707816');
+    const voiceopprison = client.channels.cache.get('783614911829114880');
+    const voicelibre = client.channels.cache.get('784905201299357706');
+    const voiceskyblock = client.channels.cache.get('783614737446862850');
+    const voicesurvie = client.channels.cache.get('783614511746646067');
+    const voicecreatif = client.channels.cache.get('783615509572223057');
+    const voicetime = client.channels.cache.get('784902370446278678');
+    
+        
+    (async () => {
+         
+        try {
+            // Test de connectivité.
+            proxy = (await isReachable('play.nemixcraft.com:25565'));
+            faction = (await isReachable('play.nemixcraft.com:25566'));
+            minage = (await isReachable('play.nemixcraft.com:25567'));
+            opprison = (await isReachable('play.nemixcraft.com:25570'));
+            libre = (await isReachable('play.nemixcraft.com:25574'));
+            survie = (await isReachable('play.nemixcraft.com:25571'));
+            creatif = (await isReachable('play.nemixcraft.com:25572'));
+            skyblock = (await isReachable('play.nemixcraft.com:25569'));
+            lobby = (await isReachable('play.nemixcraft.com:25568'));
+            authlobby = (await isReachable('play.nemixcraft.com:25573'));
+          } catch (error) {
+            console.error(error); 
+        }
+        
+        
+       // Test de connectivité.
+        await voiceproxy.setName("Proxy - " + trueornot(proxy));
+        await voiceauthlobby.setName("Authlobby - " + trueornot(authlobby));        
+        await voicelobby.setName("Lobby - " + trueornot(lobby));        
+        await voicepvpfac.setName("Faction - " + trueornot(faction));        
+        await voiceminage.setName("Minage - " + trueornot(minage));        
+        await voiceopprison.setName("Prison - " + trueornot(opprison));        
+        await voicelibre.setName("Libre - " + trueornot(libre));        
+        await voiceskyblock.setName("Skyblock - " + trueornot(skyblock));        
+        await voicesurvie.setName("Survie - " + trueornot(survie));        
+        await voicecreatif.setName("Creatif - " + trueornot(creatif));
+        
+        let heure = moment().format('h:mm:ss');
+        await voicetime.setName("Vérifié à " + heure);
+    })();
+	
+    
+	
+
+    
+    function trueornot(serveur){
+        let sortie;
+        if (serveur === true){
+            sortie = "En ligne";
+        }else if (serveur === false) {
+            sortie = "Hors ligne";
+        }
+        return sortie;
+    }
+
+    client.channels.cache.get("783634800652058634").send("Actualisation terminée !");
+
+    
+    
 }, 600000);
 
 
